@@ -1,5 +1,6 @@
 from config import key
 import requests #web
+from mic_to_text import mic1
 
 def chat1(chat):
     messages = [] #list which all messages 
@@ -11,8 +12,8 @@ def chat1(chat):
     response = requests.post(url, json=data)
     
     t1 = response.json()
-    print(t1)
-    t1.get("candidates")[0].get("contents")[0].get("parts")[0].get("text")
-
-chat = "who is MS Dhoni"
+    #print(t1)
+    t2 = t1.get("candidates")[0].get("content").get("parts")[0].get("text")
+    print(t2)
+chat = mic1()
 chat1(chat)
